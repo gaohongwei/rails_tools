@@ -3,3 +3,5 @@
 tpl="<% @ar.each do |e| %> name:<%=e[:name]%>, pay:<%=e[:pay]%> <% end %>"
 
 render :inline =>tpl,:layout => "application"
+
+data = render_to_string( :action => :show,:layout => false)
