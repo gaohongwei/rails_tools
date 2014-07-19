@@ -8,3 +8,24 @@ template = ERB.new(tpl)
 
 
 data = render_to_string( :action => :show,:layout => false)
+
+
+To render an action with no layout we can use
+render :layout => false
+
+To render an action with a specific layout
+render :layout => 'projects'
+
+#Dynamic Layouts
+class ProjectsController < ApplicationController
+  layout :user_layout
+  def user_layout
+    if current_user.admin?
+      "admin"
+    else
+      "application"
+    end
+  end
+end
+
+http://railscasts.com/episodes/7-all-about-layouts
