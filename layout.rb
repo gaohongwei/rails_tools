@@ -28,4 +28,9 @@ class ProjectsController < ApplicationController
   end
 end
 
+#Controller-specific Layouts
+app/view/layout/projects.html.erb
+The layout will be used only by the projects controller.
+
+
 http://railscasts.com/episodes/7-all-about-layouts
