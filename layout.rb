@@ -8,6 +8,7 @@ template = ERB.new(tpl)
 
 
 data = render_to_string( :action => :show,:layout => false)
+render_to_string( template: 'menu/index', locals: {items: @items})
 
 
 To render an action with no layout we can use
