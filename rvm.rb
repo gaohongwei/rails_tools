@@ -7,12 +7,13 @@ usermod -a -G rvm <username>
 usermod -a -G ftp,admins,othergroup <username>
 usermod -a -G rvm web
 
-https://rvm.io/rubies
+
 Add this to profile
 [[ -s /usr/local/rvm/scripts/rvm ]] && source /usr/local/rvm/scripts/rvm
+https://rvm.io/rubies
+
 
 curl -L https://get.rvm.io | bash -s stable --ruby
-
 rvm list 
 rvm list known
 rvm install 2.1.1
