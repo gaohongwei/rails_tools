@@ -34,7 +34,7 @@ rvm 2.1.2@rails410  # specify Ruby version and our new gemset
 gem install rails -v 4.1.0 # install specific Rails version
 
 rvm 2.1.2@rails403
-gem install rails -v 4.03 
+gem install rails -v 4.0.3 
 
 rvm gemset list
 rvm  2.1.2@rails403
