@@ -1,8 +1,10 @@
 
 
 
-
+Add a User to Multiple Groups
 #ubuntu, centos
+usermod -a -G rvm <username>
+usermod -a -G ftp,admins,othergroup <username>
 usermod -a -G rvm web
 
 https://rvm.io/rubies
