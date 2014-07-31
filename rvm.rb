@@ -13,10 +13,14 @@ Add this to profile
 [[ -s /usr/local/rvm/scripts/rvm ]] && source /usr/local/rvm/scripts/rvm
 https://rvm.io/rubies
 
-
-curl -L https://get.rvm.io | bash -s stable --ruby
-rvm list 
+#install rvm and lastest ruby
 rvm list known
+rvm list 
+
+
+curl -L https://get.rvm.io | sudo bash -s stable --ruby  # non root
+curl -L https://get.rvm.io | bash -s stable --ruby  # with root
+
 rvm install 2.1.1
 rvm use ruby-2.1.1
 rvm remove ruby-2.1.1
