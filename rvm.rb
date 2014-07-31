@@ -33,6 +33,10 @@ rvm 2.1.2@rails410  # specify Ruby version and our new gemset
 gem install rails -v 4.03   # install specific Rails version
 gem install rails -v 4.1.0
 
+rvm gemset list
+rvm  2.1.2@rails410
+rails -v
+
 
 rvmrc
 There are three different kinds of rvmrc files:
