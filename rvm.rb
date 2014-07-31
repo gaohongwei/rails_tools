@@ -1,7 +1,11 @@
 
 
-https://rvm.io/rubies
 
+
+#ubuntu, centos
+usermod -a -G rvm web
+
+https://rvm.io/rubies
 Add this to profile
 [[ -s /usr/local/rvm/scripts/rvm ]] && source /usr/local/rvm/scripts/rvm
 
@@ -10,6 +14,8 @@ rvm list known
 rvm install 2.1.1
 rvm use ruby-2.1.1
 rvm remove ruby-2.1.1
+
+
 
 rvmrc
 There are three different kinds of rvmrc files:
