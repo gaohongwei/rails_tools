@@ -26,10 +26,12 @@ rvm use ruby-2.1.1
 rvm remove ruby-2.1.1
 rvm use 1.9.3
 rvm use 2.1.1
-rvm gemset create gemset4
-rvm gemset create gemset4    # create a gemset
-rvm 2.1.1@gemset4  # specify Ruby version and our new gemset
+
+rvm gemset create rails410 rails320 # create a gemset
+ 
+rvm 2.1.2@rails410  # specify Ruby version and our new gemset
 gem install rails -v 4.03   # install specific Rails version
+gem install rails -v 4.1.0
 
 
 rvmrc
