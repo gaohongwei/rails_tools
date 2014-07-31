@@ -1,5 +1,6 @@
 
 
+adduser  web # ubuntu
 
 Add a User to Multiple Groups
 #ubuntu, centos
