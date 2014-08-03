@@ -1,10 +1,13 @@
 
 :foreign_key, foreign_key, exist in child table
 has_many/has_one/belongs_to
-By convention, Rails assumes that the column used to hold the foreign key on the other model is the name of this model with the suffix _id added. The :foreign_key option lets you set the name of the foreign key directly:
+By convention, Rails assumes that the column used to hold the foreign key on the other model is 
+the name of this model with the suffix _id added. 
+The :foreign_key option lets you set the name of the foreign key directly:
 
 :primary_key
-By convention, Rails assumes that the column used to hold the primary key of the association is id. You can override this and explicitly specify the primary key with the :primary_key option.
+By convention, Rails assumes that the column used to hold the primary key of the association is id. 
+You can override this and explicitly specify the primary key with the :primary_key option.
 
 
 
