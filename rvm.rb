@@ -28,13 +28,14 @@ rvm use 1.9.3
 rvm use 2.1.1
 
 rvm gemset create rails410 rails403 rails320 # create a gemset
-
-
 rvm 2.1.2@rails410  # specify Ruby version and our new gemset
 gem install rails -v 4.1.0 # install specific Rails version
-
 rvm 2.1.2@rails403
 gem install rails -v 4.0.3 
+
+rvm gemset create five9cms
+rvm ruby-1.9.3-p545@five9cms
+gem install rails -v 3.2.13
 
 rvm gemset list
 rvm  2.1.2@rails403
