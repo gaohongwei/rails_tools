@@ -22,7 +22,7 @@ Placing those lines at the bottom of the file will do just fine. Save the change
 
 service httpd restart 
 
-
+/etc/httpd/conf/httpd.conf
 #
 # Load config files from the config directory "/etc/httpd/conf.d".
 #
