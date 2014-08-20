@@ -33,9 +33,16 @@ gem install rails -v 4.1.0 # install specific Rails version
 rvm 2.1.2@rails403
 gem install rails -v 4.0.3 
 
+# Create new gemset
 rvm gemset create five9cms
 rvm ruby-1.9.3-p545@five9cms
-gem install rails -v 3.2.13
+gem install rails -v 4.03
+cd project
+bundle install
+edit .rvmrc
+gem install passenger -v 3.0.19
+yum install curl-devel httpd-devel 
+passenger-install-apache2-module  
 
 rvm gemset list
 rvm  2.1.2@rails403
