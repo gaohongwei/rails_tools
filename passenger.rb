@@ -21,3 +21,14 @@ PassengerDefaultRuby /usr/local/rvm/wrappers/ruby-2.0.0-p353/ruby
 Placing those lines at the bottom of the file will do just fine. Save the change and restart Apache:
 
 service httpd restart 
+
+
+#
+# Load config files from the config directory "/etc/httpd/conf.d".
+#
+Include conf.d/five9.conf
+Include conf.d/five9_redirects.conf
+Include conf.d/passenger.conf
+
+LoadModule ssl_module modules/mod_ssl.so
+Include conf.d/five9-ssl.conf
