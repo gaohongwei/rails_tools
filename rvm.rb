@@ -44,6 +44,7 @@ gem install passenger -v 3.0.19
 yum install curl-devel httpd-devel 
 passenger-install-apache2-module  
 
+# Find ruby string and gem set
 rvm gemset list
 rvm  2.1.2@rails403
 rails -v
