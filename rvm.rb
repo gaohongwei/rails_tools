@@ -1,5 +1,39 @@
+=================== Install Ruby New Version (Rails/gemset)
+sudo usermod -a -G rvm kwei
+ruby -v
+rails -v
+rvm install ruby-1.9.3-p194
+rvm use ruby-1.9.3-p194
+ruby -v
+rvm gemset list
+rvm gemset create five9cms
+rvm gemset list
+rvm ruby-1.9.3-p194@five9cms
+gem install rails -v 3.2.13
+gem install passenger 
+sudo yum install curl-devel httpd-devel
+passenger-install-apache2-module  
+view /etc/httpd/conf.d/passenger.conf
+
+   LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.3-p194@five9cms/gems/passenger-4.0.53/buildout/apache2/mod_passenger.so
+   <IfModule mod_passenger.c>
+     PassengerRoot /usr/local/rvm/gems/ruby-1.9.3-p194@five9cms/gems/passenger-4.0.53
+     PassengerDefaultRuby /usr/local/rvm/gems/ruby-1.9.3-p194@five9cms/wrappers/ruby
+   </IfModule>
 
 
+Old
+#LoadModule passenger_module /home/deployer/.rvm/gems/ruby-1.9.3-p194@five9cms/gems/passenger-3.0.19/ext/apache2/mod_passenger.so
+#PassengerRoot /home/deployer/.rvm/gems/ruby-1.9.3-p194@five9cms/gems/passenger-3.0.19
+#PassengerRuby /home/deployer/.rvm/wrappers/ruby-1.9.3-p194@five9cms/ruby
+LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.3-p194@five9cms/gems/passenger-3.0.19/ext/apache2/mod_passenger.so
+PassengerRoot /usr/local/rvm/gems/ruby-1.9.3-p194@five9cms/gems/passenger-3.0.19
+#PassengerRuby /usr/local/rvm/wrappers/ruby-1.9.3-p194@five9cms/ruby
+PassengerRuby /etc/httpd/conf.d/ruby_wrapper
+
+reboot
+sudo service httpd restart
+===================================================
 adduser  web # ubuntu
 
 Add a User to Multiple Groups
