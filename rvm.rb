@@ -1,3 +1,5 @@
+=================== Install RVM
+\curl -L https://get.rvm.io | bash -s stable
 =================== Install Ruby New Version (Rails/gemset)
 sudo usermod -a -G rvm kwei
 ruby -v
