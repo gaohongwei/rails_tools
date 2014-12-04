@@ -89,6 +89,7 @@ rvm gemset create rails416
 rvm gemset delete rails3213
 rvm gemset rename current_gemset_name new_gemset_name
 rvm  use 2.1.2@rails403
+rvm  gemdir
 rails -v
 
 
