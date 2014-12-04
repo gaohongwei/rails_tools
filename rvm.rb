@@ -82,7 +82,9 @@ yum install curl-devel httpd-devel
 passenger-install-apache2-module  
 
 # Find ruby string and gem set
+rvm list
 rvm gemset list
+rvm gemset list_all
 rvm gemset create rails416
 rvm gemset delete rails3213
 rvm gemset rename current_gemset_name new_gemset_name
