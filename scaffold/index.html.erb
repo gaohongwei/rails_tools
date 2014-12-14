@@ -1,34 +1,7 @@
-<script type="text/javascript">
-	$('.btn-danger').click(function(){
-		event.preventDefault();
-	});
-	
-	$('document').ready(function(){
-    $('.btn-info').tooltip({title: t("Show")});
-    $('.btn-primary').tooltip({title: t("Edit")})
-    $('.btn-danger').tooltip({title: t("Delete")})
-    $('.btn-success').tooltip({title: t("Create")})
-  });
-</script>
-
-<div class="page-header">
-  <h2><%%= tt('list') %>: <%%= tt('<%= plural_table_name %>') %> </h2>
-</div>
-
-<%%= search_area %>
-
-<table class="table table-striped table-bordered table-condensed">
-  <thead>
-  	<tr>
-<% attributes.each do |attribute| -%>
-    <th><%%= sortable(tt('<%= attribute.name %>')) + sort_icon(@sort_direction, @sort_column, '<%= attribute.name %>') %></th>
-<% end -%>
-    <th width="140px"><a href="#"><%%= tt('actions') %></a></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  
+<%%== index_header('list : <%= singular_table_name %>',@objs) %>
+<%%== table_header(@sort_direction, @sort_column, 
+<%= attributes.map{|a|a.name} %>) %>
+<tbody>  
 <%% if @objs.size > 0 %>   
   <%% @objs.each do |obj| %>
     <tr>
@@ -38,17 +11,13 @@
 			<% else %>
       	<td><%%= obj.<%= attribute.name %> %></td>			
 			<% end %>
-			<% end -%>
-      <td>
-			<%%= link2edit('<%= plural_table_name %>',obj.id) %>&nbsp;
-			<%%= link2delete('<%= plural_table_name %>',obj.id) %>
-      </td>
+			<% end -%>      
+        <td><%%= edit_delete('<%= plural_table_name %>',obj.id) %></td>     
     </tr>
   <%% end %>
 <%% else %>
-    <tr><td colspan="10"><%%= tt('empty') %></td></tr>  
+    <%%== no_data %> 
 <%% end %>
-  </tbody>
-</table>
+</tbody></table>
 
 <%%= link2new('<%= plural_table_name %>')%>
