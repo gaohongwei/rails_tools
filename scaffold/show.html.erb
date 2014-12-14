@@ -1,19 +1,5 @@
+<%%== page_header(@obj) %>
 <div class="breadcrumb">
-  <%%== page_header('<%= singular_table_name %> detail') %>
-  <% attributes.each do |attribute| -%>
-  <div class="row">
-    <div class="span1">
-      <strong><%%= tt('<%= attribute.name %>') %></strong>
-    </div>
-    <div class="span8">
-  	  <%%= @obj.<%= attribute.name %> %>
-    </div>
-  </div>
-  <% end -%>
+  <%%= show_me @obj %>
 </div>
-
-<div class="breadcrumb">
-	<%%= link2edit('<%= plural_table_name %>',@obj.id,true) %>
-	<%%= link2index('<%= plural_table_name %>',true) %>
-  <%%= link2new('<%= plural_table_name %>',true) %>  
-</div>
+<%%== link2actions() %>
