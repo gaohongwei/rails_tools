@@ -1,11 +1,9 @@
-<%%= div class="breadcrumb" %>
-	<%%= semantic_bootstrap_nested_form_for @obj do |f| %>
-	  <%%= f.inputs do %>
-	  <%- attributes.each do |attribute| -%>
-	    <%%= f_input(f,:<%= attribute.name %>) %>
-	  <%- end -%>
-	  <%% end %>
+<%%= semantic_form_for @<%= singular_name %> do |f| %>
+  <%%= f.inputs do %>
+  <%- attributes.each do |attribute| -%>
+    <%%= f.input :<%= attribute.name %> ,:label=>tt('<%= attribute.name %>') %>
+  <%- end -%>
+  <%% end %>
 
-	  <%%= button_submit(f) %>
-	<%% end %>
+  <%%= submit_button(f) %>
 <%% end %>
