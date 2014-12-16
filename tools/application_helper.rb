@@ -18,7 +18,10 @@ module ApplicationHelper
   def get_body_header()
     YAML.load(Setting[:body_header])||tt('no_name')
   end
-
+  def show_article(article_id) 
+    article = Article.find(article_id)
+    article.content.html_safe 
+  end
   def slide_article(article_id) 
     article = Article.find(article_id)
     content = article.content 

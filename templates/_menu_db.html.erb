@@ -3,7 +3,7 @@
   <% if current_user.admin? %>
     <% sys_menu=Menu.top %>
   <% else %>  
-    <% sys_menu=Menu.top.gt_id(1) %>
+    <% sys_menu=Menu.top.gt_id(2) %>
   <% end %>    
 <% else %>
   <% sys_menu=Menu.top.gt_id(2) %>
