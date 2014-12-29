@@ -6,3 +6,6 @@ class Loan < ActiveRecord::Base
     joins( :property => {:property_owners=>:user} ).merge(User.by_user(id))
   }
 end
+
+Post.joins(:tags).group("tags.name").count
+# => {"tag1" => 4, "tag2" => 2, "tag3" => 5}
