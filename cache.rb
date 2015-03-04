@@ -5,3 +5,19 @@ rake tmp:cache:clear
 rake assets:clean
 
 sudo rake tmp:clear
+
+rake tmp:cache:clear
+#clears out files that are stored on the filesystem 
+
+Rails.cache.clear 
+# do different things depending on your apps setting for 
+
+Rails Tip #5: Clean Up Using Rake
+Rails comes with a number of Rake tasks for cleaning up various temporary files 
+
+rake tmp:clear          # Clear all files in tmp/
+rake tmp:cache:clear    #Clear all files and directories in tmp/cache
+rake tmp:sessions:clear #Clear all files in tmp/sessions
+rake tmp:sockets:clear  #Clear all files in tmp/sockets
+rake db:sessions:clear  #Rake can also clear the sessions table if you’re using one:
+
