@@ -1,3 +1,5 @@
+# List all models from rails console
+ActiveRecord::Base.subclasses.map(&:name)
 
 #select some columns
   Widget.select("name,id").all
