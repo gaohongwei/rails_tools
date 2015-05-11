@@ -10,7 +10,9 @@ ActiveRecord::Base.subclasses.map(&:name)
   }
   scope :bycontroller, ->(controller) {
     where(:controller=>controller)
-  } 
+  }
+  
+User.where('email like ?','%gmail.com%').to_sql
 
 Virtual attribute
   attr_accessor :layout_type,:column_per_row
