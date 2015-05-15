@@ -26,6 +26,8 @@ rake db:sessions:clear  #Rake can also clear the sessions table if you’re usin
 config/environments/production.rb
 config/application.rb
 config.action_controller.perform_caching = true
+config.action_controller.page_cache_directory = 'my_public' # public by default
+config.action_controller.page_cache_extension = 'cache' #html
 
 # Page Caching
 Page caching can’t be applied to situation authentication
@@ -34,8 +36,8 @@ class ProductsController < ActionController
   caches_page :index
 
 The page cache directory is set to Rails.public_path (public) by default 
-config.action_controller.page_cache_directory = 'my_public' # public by default
+
 It helps avoid naming conflicts to chnage the default from public
 but it will require web server reconfiguration to tell the web server for the cached files.
 
-config.action_controller.page_cache_extension = 'cache' #html
+
