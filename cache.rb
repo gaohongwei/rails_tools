@@ -29,7 +29,7 @@ config.action_controller.perform_caching = true
 config.action_controller.page_cache_directory = 'my_public' # public by default
 config.action_controller.page_cache_extension = 'cache' #html
 
-# Page Caching
+==================== Page Caching ====================
 Page caching can’t be applied to situation authentication
 Enable page caching, 
 class ProductsController < ActionController
@@ -42,7 +42,6 @@ class ProductsController < ActionController
   end
 end
 
-
 The page cache directory is set to Rails.public_path (public) by default 
 
 It helps avoid naming conflicts to chnage the default from public
@@ -52,5 +51,8 @@ Page caching ignores all parameters.
 /products?page=1
 /products?page=2
  both will be written out to the filesystem as products.html
-
+==================== Action Caching ====================
+Go to Rails rack first
+Can run before_filter such as authentication
+Serve the cache, similar to Page Caching
 
