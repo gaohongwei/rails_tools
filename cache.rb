@@ -55,4 +55,18 @@ Page caching ignores all parameters.
 Go to Rails rack first
 Can run before_filter such as authentication
 Serve the cache, similar to Page Caching
+use expire_action instead of expire_page
+
+class ProductsController < ActionController
+  before_filter :authenticate
+  caches_action :index
+  def index
+    @products = Product.all
+  end
+ 
+  def create
+    expire_action :action => :index
+  end
+end
+
 
