@@ -34,8 +34,8 @@ class ProductsController < ActionController
   caches_page :index
 
 The page cache directory is set to Rails.public_path (public) by default 
-config.action_controller.page_cache_directory
+config.action_controller.page_cache_directory = 'my_public' # public by default
 It helps avoid naming conflicts to chnage the default from public
 but it will require web server reconfiguration to tell the web server for the cached files.
 
-
+config.action_controller.page_cache_extension = 'cache' #html
