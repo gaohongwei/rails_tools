@@ -34,6 +34,14 @@ Page caching can’t be applied to situation authentication
 Enable page caching, 
 class ProductsController < ActionController
   caches_page :index
+  def index
+    @products = Products.all
+  end
+  def create
+    expire_page :action => :index
+  end
+end
+
 
 The page cache directory is set to Rails.public_path (public) by default 
 
