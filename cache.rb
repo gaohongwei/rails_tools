@@ -40,4 +40,9 @@ The page cache directory is set to Rails.public_path (public) by default
 It helps avoid naming conflicts to chnage the default from public
 but it will require web server reconfiguration to tell the web server for the cached files.
 
+Page caching ignores all parameters. 
+/products?page=1
+/products?page=2
+ both will be written out to the filesystem as products.html
+
 
