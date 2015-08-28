@@ -1,3 +1,5 @@
+  #render_views
+
   it "Locked user can be unlocked by url" do
     @user.lock_access!
 =begin
