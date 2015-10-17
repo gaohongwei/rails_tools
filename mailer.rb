@@ -43,3 +43,4 @@ class ApplicationController < ActionController::Base
   end
 end
 
+export PASSWORD='mypwd'
