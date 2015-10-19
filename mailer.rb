@@ -44,3 +44,31 @@ class ApplicationController < ActionController::Base
 end
 
 export PASSWORD='mypwd'
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.default_options = { from: Settings.email.email }
+  config.action_mailer.smtp_settings = {
+    user_name: Settings.email.email,
+    password: ENV['password']||Settings.email.password,
+    domain: Settings.email.domain,
+    address: Settings.email.address,
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+
+  # Exception Notification
+  exception_recipients = %w(support@gmail.com)
+  exception_sender     = 'support@gmail.com'
+  config.middleware.use ExceptionNotification::Rack,
+    email:
+      {
+        :email_prefix => "[PREFIX] ",
+        :sender_address => %{"notifier" <#{exception_sender}>},
+        :exception_recipients => exception_recipients,
+        :delivery_method => :smtp,
+        :smtp_settings => config.action_mailer.smtp_settings
+      }
