@@ -10,3 +10,16 @@ Rake::Task["build"].invoke
 This first resets the task's already_invoked state, allowing the task to then be executed again, dependencies and all:
 Rake::Task["build"].reenable
 Rake::Task["build"].invoke
+
+Pass parameters to rake
+Call methods
+  Example:
+    rake bootstrap:user USER_EMAIL=admin@google.com 
+  DESC
+  task user: [:environment, :reconfigure]do
+    user_email = ENV['USER_EMAIL']
+    fail 'Please specify a USER_EMAIL' if user_email.blank?
+    add_user(user_email)
+  end
+  def add_user(user_email)
+  end
