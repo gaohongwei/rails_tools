@@ -18,3 +18,6 @@ db:migrate:down
 $ rake db:migrate:up VERSION=20080906120000
 will run the 20080906120000 migration by running the change/up method
 Will do nothing if it has already been run.
+
+rake db:migrate:up   VERSION=20080906120000
+rake db:migrate:redo VERSION=20080906120000
