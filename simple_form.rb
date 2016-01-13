@@ -1,4 +1,8 @@
 
+Checkbox lable on the right or left
+= f.input :include_fix_buttons, as: :boolean, inline_label: 'Right'
+= f.input :include_fix_buttons, as: :boolean, label: 'left'
+
 =form.input :box_apps, collection: box_apps, 
 as: :check_boxes, 
 label: false, 
