@@ -1,6 +1,18 @@
 =================== Install RVM
-\curl -L https://get.rvm.io | bash -s stable
+curl 2>/dev/null >/dev/null || apt-get install curl -y
+rvm  2>/dev/null >/dev/null || \curl -sSL https://get.rvm.io
+rvm  2>/dev/null >/dev/null || \curl -sSL https://get.rvm.io | bash -s stable
+rvm  2>/dev/null >/dev/null || \curl -sSL https://get.rvm.io | bash -s stable --rails
 =================== Install Ruby New Version (Rails/gemset)
+source /etc/profile.d/rvm.sh
+rvm install 2.2.1
+rvm use 2.2.1 #rvm list
+rvm gemset create web1.0
+rvm 2.2.1@web1.0 #rvm gemset list
+rvm --default use 2.2.1@web1.0
+rails -v 2>/dev/null >/dev/null ||
+gem install --no-rdoc --no-ri rails -v 4.2.5
+=================== 
 sudo usermod -a -G rvm kwei
 ruby -v
 rails -v
