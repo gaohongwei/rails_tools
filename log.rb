@@ -23,3 +23,14 @@ logfile = File.open("#{Rails.root}/log/custom.log", 'a')  # create log file
 logfile.sync = true  # automatically flushes data to file
 CUSTOM_LOGGER = Log2db.new(logfile)  # constant accessible anywhere
 Rails.logger.extend(ActiveSupport::Logger.broadcast(CUSTOM_LOGGER))
+
+
+module SampleApp
+  class Application < Rails::Application
+    # other lines...
+    config.log_level = :info
+    config.logger = ActFluentLoggerRails::Logger.new
+    config.lograge.enabled = true
+    config.lograge.formatter = Lograge::Formatters::Json.new
+  end
+end
