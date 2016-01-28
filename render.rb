@@ -8,6 +8,9 @@ Render a partial to a string
 AbstractController::render_to_string
 partial_string = render_to_string(:partial => 'my_partial')
 
+format.json render :partial => "users/show.json"
+format.html { redirect_to @task, notice: 'Task was successfully created.' }
+format.json { render json: @task, status: :created, location: @task }
 
 Render html/json
   def create
