@@ -9,7 +9,7 @@ replace Rails.logger in an initializer.
 exception_logger
 https://github.com/defunkt/exception_logger/tree/master
 
-######
+###### write to mutiple loggers
 require 'singleton'
 class Log2db < Logger
   def format_message(severity, timestamp, progname, msg)
@@ -23,6 +23,18 @@ logfile = File.open("#{Rails.root}/log/custom.log", 'a')  # create log file
 logfile.sync = true  # automatically flushes data to file
 CUSTOM_LOGGER = Log2db.new(logfile)  # constant accessible anywhere
 Rails.logger.extend(ActiveSupport::Logger.broadcast(CUSTOM_LOGGER))
+
+### use json format
+class Log2json < Logger::Formatter
+  def call(severity, timestamp, progname, message)
+    {
+      type: severity,
+      time: timestamp,
+      message: message
+    }.to_json
+  end
+end
+config.log_formatter = Log2json.new # env
 
 
 module SampleApp
