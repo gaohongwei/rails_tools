@@ -24,15 +24,15 @@ logfile.sync = true  # automatically flushes data to file
 CUSTOM_LOGGER = Log2db.new(logfile)  # constant accessible anywhere
 Rails.logger.extend(ActiveSupport::Logger.broadcast(CUSTOM_LOGGER))
 
-### use json format
+### use json/yaml format
 class Log2json < Logger::Formatter
   def call(severity, timestamp, progname, message)
     {
       type: severity,
       time: timestamp,
       message: message
-    }.to_json
-  end
+    }.to_yaml #to_json
+  end 
 end
 config.log_formatter = Log2json.new # env
 
