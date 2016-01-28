@@ -1,3 +1,5 @@
+The Logger
+http://railscasts.com/episodes/56-the-logger
 
 ActiveRecord::Base.logger = YouLogger.new
 
