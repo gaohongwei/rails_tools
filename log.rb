@@ -46,3 +46,51 @@ module SampleApp
     config.lograge.formatter = Lograge::Formatters::Json.new
   end
 end
+###################
+class Log2db < Logger
+  def start
+    @logging=true
+  end
+  def stop
+    @logging=false
+  end
+  def format_message(severity, timestamp, progname, msg)
+    "#{severity} #{timestamp} #{progname} #{msg}\n"
+  end
+  def add(severity, message = nil, progname = nil, &block)
+    super unless @logging.nil? || !@logging
+  end
+end
+
+class Log
+  logfile = File.open("#{Rails.root}/log/custom.log", 'a')
+  logfile.sync = true
+  CUSTOM_LOGGER = Log2db.new(logfile)
+  def self.start_old
+    puts "==========start logging"
+    ActiveSupport::Logger.module_eval do
+      alias_method :add_org, :add
+      define_method(:add) do |*args, &block|
+        CUSTOM_LOGGER.add(*args, &block)
+        super(*args, &block)
+      end
+    end
+  end
+  def self.start
+    puts "==========start logging"
+    CUSTOM_LOGGER.start
+    Rails.logger.extend(ActiveSupport::Logger.broadcast(CUSTOM_LOGGER))
+  end
+  def self.stop
+    puts "==============stop logging"
+    CUSTOM_LOGGER.stop
+  end
+  def self.stop_old
+    puts "==============stop logging"
+    ActiveSupport::Logger.module_eval do
+      define_method(:add) do |*args, &block|
+        add_org(*args, &block)
+      end
+    end
+  end
+end
