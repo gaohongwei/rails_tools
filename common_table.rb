@@ -23,6 +23,10 @@
       col_value
     when 'Hash'
       url = col_def[:url]
+      img = col_def[:img]
+      if img
+          fname= row.send('img_fname')
+          image_path(fname)
       if url
         case url.class.name
         when 'String'
