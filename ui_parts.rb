@@ -24,5 +24,7 @@
       = check_box_tag vname, row[key], rows.map{|x|x[key]}.include?(row[key]), id: row[key]
       label.label.item-red.strong = row[label]
       
+# Checkbox
+= f.collection_check_boxes :file_types, [[true, 'Yes'] ,[false, 'No']], :first, :last
       
       
