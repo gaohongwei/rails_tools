@@ -25,6 +25,6 @@
       label.label.item-red.strong = row[label]
       
 # Checkbox
-= f.collection_check_boxes :file_types, [[true, 'Yes'] ,[false, 'No']], :first, :last
+= f.collection_check_boxes :file_types,[['file','File'],['report','Report']], :first, :last
       
       
