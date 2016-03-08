@@ -7,3 +7,8 @@ rails c
 redis=Redis.new(port:6380)
 redis.lrange("updater",0,-1)
 This will display "updater" on 172.16.16.136 Redis
+
+
+Background saving is failing with a fork() error under Linux even if I've a lot of free RAM!
+as root,
+echo 1 > /proc/sys/vm/overcommit_memory
