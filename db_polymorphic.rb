@@ -42,4 +42,6 @@ class CreatePictures < ActiveRecord::Migration
     end
   end
 end
+
+https://www.youtube.com/watch?v=WOFAcbxdWjY
 http://guides.rubyonrails.org/association_basics.html
