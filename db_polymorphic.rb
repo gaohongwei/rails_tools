@@ -1,3 +1,5 @@
+
+https://www.youtube.com/watch?v=WOFAcbxdWjY
 A model can belong to multiple models on a single association. 
 
 A picture model can belongs to either an employee model or a product model
@@ -37,11 +39,70 @@ class CreatePictures < ActiveRecord::Migration
   def change
     create_table :pictures do |t|
       t.string :name
-      t.references :imageable, polymorphic: true, index: true
+      t.belongs_to :imageable, polymorphic: true, index: true #option 1
+      t.references :imageable, polymorphic: true, index: true #option 2       
+      t.timestamps null: false
+    end
+  end
+end
+#############################################################
+# Railscasts PRO #154 Polymorphic Association
+http://guides.rubyonrails.org/association_basics.html
+class Comment < ActiveRecord::Base
+  belongs_to :commentable, polymorphic: true
+end
+ 
+class Article < ActiveRecord::Base
+  has_many :comments, as: :commentable
+end
+ 
+class Event < ActiveRecord::Base
+  has_many :comments, as: :commentable
+end
+
+@article.comments.
+@event.comments.
+@comment.commentable
+
+# DB migration
+class CreateComments < ActiveRecord::Migration
+  def change
+    create_table :comments do |t|
+      t.string  :content
+      t.integer :commentable_id
+      t.string  :commentable_type
+      t.timestamps null: false
+    end
+ 
+    add_index :comments, [:commentable_id,:commentable_type]
+  end
+end
+
+class CreateComments < ActiveRecord::Migration
+  def change
+    create_table :comments do |t|
+      t.string :content
+      t.belongs_to :commentable, polymorphic: true, index: true
       t.timestamps null: false
     end
   end
 end
 
-https://www.youtube.com/watch?v=WOFAcbxdWjY
-http://guides.rubyonrails.org/association_basics.html
+Controller:
+before_filter :load_commentable
+def load_commentable
+  res,id=request.path.split('/')[1,2] # /photos/1
+  @commentable=res.singularize.classify.constantize.find(id)
+  # Article.find(1)
+end
+
+Nested resource
+
+Comment index view :
+link_to "New Comment",[:new, @commentable,:comment]
+# /photos/1/comments/new
+Comment Show Action:
+redirect_to [@commentable, comments], notice:"created"
+
+Form:
+form_for [@commentable, @comment]
