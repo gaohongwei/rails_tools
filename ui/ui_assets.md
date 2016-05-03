@@ -1,7 +1,3 @@
-我有个网站，http://iask.heroku.com/, 你看看换换内容，题目，以后我们一起创业吧
-
-
-
 javascript_include_tag "common.javascript", "/elsewhere/cools"
 # => <script src="/assets/common.javascript?1284139606"></script>
 #    <script src="/elsewhere/cools.js?1423139606"></script>
