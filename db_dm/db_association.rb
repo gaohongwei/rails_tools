@@ -53,8 +53,11 @@ end
 class Newsletter
   has_many :subscriptions
   has_many :users, :through => :subscriptions
+  # Rename to subscribers
+  has_many :subscribers, :through => :subscriptions, :source => :user  
 end
 
+# user_id, newsletter_id
 class Subscription
   belongs_to :newsletter
   belongs_to :user
@@ -67,10 +70,6 @@ But if you want to be clearer and be able to type
 Newsletter.find(id).subscribers instead, 
 you must change the Newsletter class to this:
 
-class Newsletter
-  has_many :subscriptions
-  has_many :subscribers, :through => :subscriptions, :source => :user
-end
 You are renaming the users association to subscribers. 
 If you don't provide the :source, Rails will look for an association 
 called subscriber in the Subscription class. 
