@@ -43,3 +43,36 @@ end
 
 
 http://guides.rubyonrails.org/association_basics.html
+
+---------------------
+class User
+  has_many :subscriptions
+  has_many :newsletters, :through => :subscriptions
+end
+
+class Newsletter
+  has_many :subscriptions
+  has_many :users, :through => :subscriptions
+end
+
+class Subscription
+  belongs_to :newsletter
+  belongs_to :user
+end
+With this code, you can do something like 
+Newsletter.find(id).users to 
+get a list of the newsletter's subscribers. 
+
+But if you want to be clearer and be able to type 
+Newsletter.find(id).subscribers instead, 
+you must change the Newsletter class to this:
+
+class Newsletter
+  has_many :subscriptions
+  has_many :subscribers, :through => :subscriptions, :source => :user
+end
+You are renaming the users association to subscribers. 
+If you don't provide the :source, Rails will look for an association 
+called subscriber in the Subscription class. 
+You have to tell it to use the user association 
+in the Subscription class to make the list of subscribers.
