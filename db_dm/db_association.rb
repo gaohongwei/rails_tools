@@ -44,7 +44,7 @@ end
 
 http://guides.rubyonrails.org/association_basics.html
 
----------------------
+---------- :source ----------
 class User
   has_many :subscriptions
   has_many :newsletters, :through => :subscriptions
