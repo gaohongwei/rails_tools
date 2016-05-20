@@ -1,0 +1,14 @@
+a.btn.btn-default.btn-sm.btn-viewLogs data-target="##{target_id}" data-toggle='modal' href='#' Delete
+.modal.fade.in id=target_id
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal"
+          span aria-hidden="true"×
+          span.sr-only Close
+        h4.modal-title=title
+      .modal-body
+        p=question
+      .modal-footer
+        = link_to 'Delete Now', path, method: :delete, class:'btn btn-primary btn-large'
+        button.btn.btn-temp.btn-large data-dismiss='modal' type='button' Cancel
