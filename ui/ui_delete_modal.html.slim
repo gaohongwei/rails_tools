@@ -12,3 +12,9 @@ a.btn.btn-default.btn-sm.btn-viewLogs data-target="##{target_id}" data-toggle='m
       .modal-footer
         = link_to 'Delete Now', path, method: :delete, class:'btn btn-primary btn-large'
         button.btn.btn-temp.btn-large data-dismiss='modal' type='button' Cancel
+
+= render 'shared/delete_modal', 
+path:report_path(report), 
+title:'Delete report?', 
+question: "Are you sure to delete #{report.name}?", 
+target_id: "modal-delete-report-#{report.id.to_s}"
