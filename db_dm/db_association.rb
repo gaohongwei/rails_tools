@@ -1,44 +1,32 @@
-======== Child table, belongs_to ========
+======== Sample ========
 rails g model group name:string parent_id:integer
+
+======== :class_name ========
+apply to has_many/has_one/belongs_to
+If the name of the other model cannot be derived from the association name, 
+you can use the :class_name option to supply the model name.
+
+======== Child table, belongs_to ========
 Can have a belongs_to association
 Need a foreign_key
 belongs_to :parent, :foreign_key => :parent_id, :class_name => :group
 The :foreign_key option lets you set the name of the foreign key directly:
 
 ======== has_many ========
-
 has_many/has_one/belongs_to
-By convention, Rails assumes that the column used to hold the foreign key on the other model is 
+Rails assumes that the column used to hold the foreign key on the other model is 
 the name of this model with the suffix _id added. 
+If not, you need specify class_name
 
-
-:primary_key
-By convention, Rails assumes that the column used to hold the primary key of the association is id. 
-You can override this and explicitly specify the primary key with the :primary_key option.
-
-
-
-:source
-has_many/has_one
+======== :source ========
 The :source option specifies the source association name for a 
 has_many/has_one :through association. 
-You only need to use this option if the name of the source association cannot be 
-automatically inferred from the association name.
-
-======== :class_name ========
-apply to has_many/has_one/belongs_to
-If the name of the other model cannot be derived from the association name, you can 
-use the :class_name option to supply the model name.
-
----------------------
-:source and :class_name are conceptually the same, just need to be different for different uses.
-
 :source is used (optionally) to define the associated model name when you're using has_many  through; 
 :class_name is used (optionally) in a simple has many relationship. 
 
-Both are needed only if Rails cannot figure out the class name on its own. 
-
-
+======== :primary_key ========
+By convention, Rails assumes that the column used to hold the primary key of the association is id. 
+You can override this and explicitly specify the primary key with the :primary_key option.
 
 Self Joins
 class Employee < ActiveRecord::Base
