@@ -1,9 +1,16 @@
+======== Child table, belongs_to ========
+rails g model group name:string parent_id:integer
+Can have a belongs_to association
+Need a foreign_key
+belongs_to :parent, :foreign_key => :parent_id, :class_name => :group
+The :foreign_key option lets you set the name of the foreign key directly:
 
-:foreign_key, foreign_key, exist in child table
+======== has_many ========
+
 has_many/has_one/belongs_to
 By convention, Rails assumes that the column used to hold the foreign key on the other model is 
 the name of this model with the suffix _id added. 
-The :foreign_key option lets you set the name of the foreign key directly:
+
 
 :primary_key
 By convention, Rails assumes that the column used to hold the primary key of the association is id. 
@@ -18,8 +25,8 @@ has_many/has_one :through association.
 You only need to use this option if the name of the source association cannot be 
 automatically inferred from the association name.
 
-:class_name
-has_many/has_one/belongs_to
+======== :class_name ========
+apply to has_many/has_one/belongs_to
 If the name of the other model cannot be derived from the association name, you can 
 use the :class_name option to supply the model name.
 
