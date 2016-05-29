@@ -5,12 +5,16 @@ rails g model group name:string parent_id:integer
 apply to has_many/has_one/belongs_to
 If the name of the other model cannot be derived from the association name, 
 you can use the :class_name option to supply the model name.
+class_name: 'Group'
+
+======== :foreign_key ========
+The :foreign_key option lets you set the name of the foreign key.
+Can be on belongs_to and has_many
 
 ======== Child table, belongs_to ========
 Can have a belongs_to association
 Need a foreign_key
-belongs_to :parent, :foreign_key => :parent_id, :class_name => :group
-The :foreign_key option lets you set the name of the foreign key directly:
+belongs_to :parent, foreign_key: :parent_id, class_name: 'Group'
 
 ======== has_many ========
 has_many/has_one/belongs_to
@@ -25,6 +29,7 @@ has_many/has_one :through association.
 :class_name is used (optionally) in a simple has many relationship. 
 
 ======== :primary_key ========
+Haven't found use case yet
 By convention, Rails assumes that the column used to hold the primary key of the association is id. 
 You can override this and explicitly specify the primary key with the :primary_key option.
 
