@@ -35,6 +35,11 @@ You can override this and explicitly specify the primary key with the :primary_k
 
 Self Joins
 class Employee < ActiveRecord::Base
+#rails g  model employee name:string mgr_id:integer
+  belongs_to :boss, foreign_key: :mgr_id, class_name: 'Book'
+  has_many   :subs, foreign_key: :mgr_id, class_name: 'Book'
+end
+class Employee < ActiveRecord::Base
   has_many :subordinates, class_name: "Employee",
                           foreign_key: "manager_id"
  
