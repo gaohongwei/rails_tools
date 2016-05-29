@@ -10,6 +10,15 @@ class_name: 'Group'
 ======== :foreign_key ========
 The :foreign_key option lets you set the name of the foreign key.
 Can be on belongs_to and has_many
+class Employee < ActiveRecord::Base
+#rails g  model employee name:string mgr_id:integer
+  belongs_to :boss, foreign_key: :mgr_id, class_name: 'EmployeeA'
+  has_many   :subs, foreign_key: :mgr_id, class_name: 'EmployeeB'
+end
+For boss
+select EmployeeA.* from EmployeeA where EmployeeA.id = employee.mgr_id
+For sub
+select EmployeeB.* from EmployeeB where EmployeeB.mgr_id = employee.id
 
 ======== Child table, belongs_to ========
 Can have a belongs_to association
