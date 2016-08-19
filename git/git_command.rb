@@ -13,3 +13,7 @@ ssh remote_host command_to_run
 git config --global user.email
 
 git clone https://gaohongwei@github.com/gaohongwei/rails_topics
+
+Checkout specific files from another branch
+git checkout development -- Gemfile
+git checkout development -- Gemfile.lock
