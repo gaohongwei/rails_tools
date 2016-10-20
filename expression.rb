@@ -29,3 +29,10 @@ Repetition
 
 1. %r{... } : (/... /)
   expect(rendered).to match %r{<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>}
+
+2. Interpolating a string into a regex
+uid='1234'
+test = ["1234_o365" , "1000"]
+test.find{|x| /#{uid}/ =~ x}
+
+if goo =~ /#{Regexp.quote(uid)}/
