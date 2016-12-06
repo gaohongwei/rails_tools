@@ -7,3 +7,6 @@ def default_options
   existing = superclass.respond_to?(:default_options) ? superclass.default_options : {}
   @default_options = OmniAuth::Strategy::Options.new(existing)
 end
+
+Source:
+https://github.com/omniauth/omniauth/blob/master/lib/omniauth/strategy.rb
