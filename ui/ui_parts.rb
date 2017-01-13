@@ -23,10 +23,3 @@
     div
       = check_box_tag vname, row[key], rows.map{|x|x[key]}.include?(row[key]), id: row[key]
       label.label.item-red.strong = row[label]
-      
-# Checkbox
-= f.collection_check_boxes :file_types,[['file','File'],['report','Report']], :first, :last
-= f.input_field :event_types, as: :check_boxes, collection: [['previewed','previewed'], ['downloded','downloded']]
-= f.input_field :types, as: :check_boxes, collection: [['box','box'], ['o365','o365']
-= f.input_field :file_types, as: :check_boxes, collection: [['file','file'], ['folder','folder']]      
-      
