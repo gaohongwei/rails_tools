@@ -3,3 +3,6 @@
 div
   = f.input_field :is_boolean, as: :boolean, label: false
   = ' This is my label'
+
+# Show a list of checkboxes
+= f.input_field :file_types, as: :check_boxes, collection: [['file','file'], ['folder','folder']]  
