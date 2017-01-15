@@ -7,4 +7,9 @@ logger.debug array
 <%= debug params %>
 
 putt the follwoing line into ruby code
+byebug  # byebug
+binding.pry #pry
+
+Javascript debug
+putt the follwoing line into js code
 debugger
