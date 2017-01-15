@@ -4,7 +4,7 @@ open("http://image.com/img.jpg") { |io| io.read }
 2. Encode
 ActiveSupport::Base64.encode64(open("http://image.com/img.jpg") { |io| io.read })
 
-3. Update with encoded data
+3. Update paperclip attachment with encoded data
 tempfile = uploaded_file.path
 contents =File.open(tempfile, "rb") {|f| f.read }
 encoded = Base64.strict_encode64(contents)
