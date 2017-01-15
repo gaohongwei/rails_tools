@@ -1,5 +1,6 @@
 gem 'exception_notification'
 
+env/staging.rb
   developers_list = %w(bugs@abc.com)
   config.middleware.use ExceptionNotification::Rack,
                         email: {
