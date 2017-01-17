@@ -29,8 +29,9 @@ Model
     s3_credentials: {
       bucket: 'bucket_name'
     }
-
+##### local storage #####
   has_mongoid_attached_file :local_image,
     :storage        => :filesystem,
     :path           => ':rails_root/public/:style.:extension',
     :url            => ':style.:extension'
+##### database storage #####
