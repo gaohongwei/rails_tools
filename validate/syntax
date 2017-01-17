@@ -3,17 +3,19 @@ def customized_validation;end
 
 validates :email, presence: true, uniquiness: true, format: 
 The content can be defined on validates
-
-
   validates :email, presence: true, email: true
   validates :name, :login, :email, presence: true  
   uniqueness: true
+  uniqueness: { case_sensitive: false, scope: :cs_user }
+  uniqueness: { scope: [:type, :service_email] }
   presence: true, 
   absence: true
+  presence: true
+  acceptance: true
   allow_blank: false
   numericality: true 
   numericality: { only_integer: true } 
-  length: { minimum: 3, minimum: 10}
+  length: { minimum: 3, minimum: 10, message: 'Maximum 500'}
   length: { in: 6..20 }
   length: { is: 5 }
 
