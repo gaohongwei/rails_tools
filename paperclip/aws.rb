@@ -21,7 +21,7 @@ development.rb
   }
 
 Model
-  has_mongoid_attached_file :attachment,
+  has_mongoid_attached_file :aws_attachment,
     :path           => '/:cs_user_md5/attachment/:id/:style.:extension',
     :storage        => :s3, # :filesystem
     #:s3_host_alias  => 'something.cloudfront.net',
@@ -29,3 +29,8 @@ Model
     s3_credentials: {
       bucket: 'bucket_name'
     }
+
+  has_mongoid_attached_file :local_image,
+    :storage        => :filesystem,
+    :path           => ':rails_root/public/:style.:extension',
+    :url            => ':style.:extension'
