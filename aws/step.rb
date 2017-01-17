@@ -23,7 +23,7 @@ development.rb
 Model
   has_mongoid_attached_file :attachment,
     :path           => '/:cs_user_md5/attachment/:id/:style.:extension',
-    :storage        => :s3,
+    :storage        => :s3, # :filesystem
     #:s3_host_alias  => 'something.cloudfront.net',
     #:s3_credentials => File.join(Rails.root, 'config', 's3.yml'),
     s3_credentials: {
