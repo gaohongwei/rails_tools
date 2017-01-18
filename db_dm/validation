@@ -1,6 +1,10 @@
 validate :customized_validation
 def customized_validation;end
 
+validates can be defined on methods
+on: :create
+on: :update
+
 validates :email, presence: true, uniquiness: true, format: 
 The content can be defined on validates
   validates :email, presence: true, email: true
