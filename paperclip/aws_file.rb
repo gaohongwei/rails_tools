@@ -7,6 +7,10 @@ def image
   end
 end
 
+fname = 'alogo.txt'
+bucket.objects[fname].write('Text', acl: :public_read)
+
+
 class S3Store
   BUCKET = "app-uploads".freeze
 
