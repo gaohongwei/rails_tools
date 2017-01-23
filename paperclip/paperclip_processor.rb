@@ -9,6 +9,11 @@
     styles: { 'logo.:extension'.to_sym => "200x200>", thumb: "100x100>" , 'logo.txt'.to_sym => 'base64'},
     processors: [:custom]
   
+
+:path => proc { |attachment| "#{attachment.istance.projectname}/:attachment/:id/:basename.:extension" },
+or styles: { thumb: ["64x64#", :jpg] }
+
+
   module Paperclip
   class Custom < Processor
     def initialize(file, options = {}, attachment = nil)
