@@ -35,3 +35,19 @@ class S3Store
     @filename ||= @file.original_filename.gsub(/[^a-zA-Z0-9_\.]/, '_')
   end
 end
+
+
+
+  def rename(style_name = :txt)
+    s3 = AWS::S3.new
+    bucket ||= s3.buckets[image.bucket_name]
+    obj = bucket.objects[image.s3_object(style_name).key]
+    new_obj = "#{bucket}/alogo.txt"
+    new_obj = "alogo.txt"
+
+    obj.move_to(new_obj, acl:'public-read') # rename file to new name with public read acl.
+
+  obj = S3::Object.new(bucket, style_name, client: s3)
+  obj.move_to('target-bucket/target-key')
+
+  end
