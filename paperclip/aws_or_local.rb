@@ -35,11 +35,24 @@ Model
     :path           => ':rails_root/public/:style.:extension',
     :url            => ':style.:extension'
 ##### database storage #####
-
+validates_with AttachmentSizeValidator, attributes: :image, less_than: 100.kilobytes
 
 validates_attachment :image, :presence => true,
   styles: { small: "64x64", med: "100x100", large: "200x200" },
   :content_type => { :content_type => "image/jpg" },
   :size => { :in => 0..100.kilobytes }
 
-validates_with AttachmentSizeValidator, attributes: :image, less_than: 100.kilobytes
+ validates_attachment_content_type(
+    :image,
+    content_type: [
+      'image/jpeg',
+      'image/png'
+    ]
+  )
+  
+  validates_attachment :image, 
+    content_type: { content_type: [
+      'image/jpeg',
+      'image/png'
+    ] },
+  size: { in: 0..100.kilobytes }
