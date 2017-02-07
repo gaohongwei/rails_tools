@@ -1,0 +1,9 @@
+Rack is a middleware
+Middleware is common library for common functions
+suach as logging, authentication 
+
+Rack divide a web request into separate stages
+Authentication
+Authorisation
+Caching
+Execution
