@@ -3,6 +3,7 @@
     = f.button :submit, 'Save', class: "btn-primary btn-lg save"
     = ' '
     = link_to 'Cancel', :back, class: "btn btn-default btn-lg back"
+    = link_to 'Cancel', syslog_global_settings_path, class: "btn btn-default btn-lg"
 
 
     expect(rendered).to have_tag('input', with: { value: 'Save', class: "btn btn-primary btn-lg save" })
