@@ -1,3 +1,9 @@
+link_to "Delete", 
+syslog_app_path(id: app['client_id'], name: app.try(:[],'name')), 
+method: :delete, 
+data: {confirm: "You sure?"}, 
+class: 'btn btn-default pull-right'
+
 a.btn.btn-default.btn-sm.btn-viewLogs data-target="##{target_id}" data-toggle='modal' href='#' Delete
 .modal.fade.in id=target_id
   .modal-dialog
