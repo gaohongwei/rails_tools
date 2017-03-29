@@ -3,7 +3,7 @@
     redirect client.auth_code.authorize_url({:redirect_uri => callback_url}.merge(authorize_params))
   end
   
-  def authorize_params
+  def authorize_params# OAuth2
     options.authorize_params[:state] = SecureRandom.hex(24)
     params = options.authorize_params.merge(options_for("authorize"))
     if OmniAuth.config.test_mode
