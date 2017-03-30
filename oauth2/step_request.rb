@@ -23,4 +23,13 @@
   end
   
   Subclass may define options authorize_options attributes
-  options_for("authorize") will read these key-value paire
+  options_for("authorize") will read these key-value pair.
+  Not found a use case yet
+
+  def options_for(option)# OAuth2
+    hash = {}
+    options.send(:"#{option}_options").select { |key| options[key] }.each do |key|
+      hash[key.to_sym] = options[key]
+    end
+    hash
+  end
