@@ -26,10 +26,3 @@
   options_for("authorize") will read these key-value pair.
   option :authorize_options, [:scope, :team] #slack
 
-  def options_for(option)# OAuth2
-    hash = {}
-    options.send(:"#{option}_options").select { |key| options[key] }.each do |key|
-      hash[key.to_sym] = options[key]
-    end
-    hash
-  end
