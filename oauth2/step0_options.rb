@@ -37,11 +37,37 @@
  "scope"=>"discovery:read discovery:write"
 }
 
+  option :client_options, {
+    :site          => 'https://login.salesforce.com',
+    :authorize_url => '/services/oauth2/authorize',
+    :token_url     => '/services/oauth2/token'
+  }#salesforce
+  option :authorize_options, [
+    :scope,
+    :display,
+    :immediate,
+    :state,
+    :prompt
+  ] #salesforce
+  option :authorize_params, {
+    resource: 'https://graph.windows.net/'
+  } #Office365
+
+client_id, client_secret, scope can be defined in
+initialize/omniauth.rb
+
+      option :client_id, nil # default_options[client_id] = nil
+      option :client_secret, nil
+      option :client_options, {}
+      option :authorize_params, {}
+      option :authorize_options, [:scope]
+      option :token_params, {}
+      option :token_options, []
+      option :auth_token_params, {}
+      option :provider_ignores_state, false
+
     option :authorize_options, [:scope, :team]
-    option :client_options, {
-      site: 'https://slack.com',
-      token_url: '/api/oauth.access'
-    }
+
     option :auth_token_params, {
       mode: :query,
       param_name: 'token'
