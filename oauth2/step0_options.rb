@@ -30,3 +30,5 @@
 #There are two calls
 options_for('authorize')
 options_for('token')
+# Sample definitions
+option :authorize_options, [:scope, :team] #slack
