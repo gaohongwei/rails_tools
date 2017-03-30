@@ -24,5 +24,3 @@
   
   Subclass may need options authorize_options attributes
   options_for("authorize") will read these key-value pair.
-  option :authorize_options, [:scope, :team] #slack
-
