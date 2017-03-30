@@ -37,25 +37,8 @@
  "scope"=>"discovery:read discovery:write"
 }
 
-  option :client_options, {
-    :site          => 'https://login.salesforce.com',
-    :authorize_url => '/services/oauth2/authorize',
-    :token_url     => '/services/oauth2/token'
-  }#salesforce
-  option :authorize_options, [
-    :scope,
-    :display,
-    :immediate,
-    :state,
-    :prompt
-  ] #salesforce
-  option :authorize_params, {
-    resource: 'https://graph.windows.net/'
-  } #Office365
-
-client_id, client_secret, scope can be defined in
-initialize/omniauth.rb
-
+Provide option data for auth, and token
+0. All options
       option :client_id, nil # default_options[client_id] = nil
       option :client_secret, nil
       option :client_options, {}
@@ -65,18 +48,54 @@ initialize/omniauth.rb
       option :token_options, []
       option :auth_token_params, {}
       option :provider_ignores_state, false
+1. client_id,client_secret, scope
+Static id/secret usually can be defined in
+initialize/omniauth.rb
 
-    option :authorize_options, [:scope, :team]
+2. site, authorize_url, token_url
+      option :client_options, {
+        authorize_url: "https://secure.sharefile.com/oauth/authorize",
+        token_url: "https://secure.sharefile.com/oauth/token"
+      }
+      option :client_options, {
+        :site          => 'https://login.salesforce.com',
+        :authorize_url => '/services/oauth2/authorize',
+        :token_url     => '/services/oauth2/token'
+      }#salesforce
 
-    option :auth_token_params, {
-      mode: :query,
-      param_name: 'token'
-    }
+3. authorize_params
+      option :authorize_options, [:scope, :team] #slack 
+      option :authorize_options, [
+        :scope,
+        :display,
+        :immediate,
+        :state,
+        :prompt
+      ] #salesforce
+      option :authorize_params, { key: 'key' }      
+      option :authorize_params, {
+        resource: 'https://graph.windows.net/'
+      } #Office365         
+4. token params
+      option :token_params, {}
+      option :token_options, []
+      option :auth_token_params, {}
+      option :auth_token_params, {
+        mode: :query,
+        param_name: 'token'
+      }
 
+5 options_for
+#There are two calls
+options_for('authorize')
+options_for('token')
+# Sample definitions
+option :authorize_options, [:scope, :team] #slack
+
+6. Methods
     def option(name, value = nil)
       default_options[name] = value
     end
-
     def default_options
       return @default_options if instance_variable_defined?(:@default_options) && @default_options
       existing = superclass.respond_to?(:default_options) ? superclass.default_options : {}
@@ -85,16 +104,12 @@ initialize/omniauth.rb
 
     @options = self.class.default_options.dup
 
-  def options_for(option)# OAuth2
-    hash = {}
-    options.send(:"#{option}_options").select { |key| options[key] }.each do |key|
-      hash[key.to_sym] = options[key]
+    def options_for(option)# OAuth2
+      hash = {}
+      options.send(:"#{option}_options").select { |key| options[key] }.each do |key|
+        hash[key.to_sym] = options[key]
+      end
+      hash
     end
-    hash
-  end
 
-#There are two calls
-options_for('authorize')
-options_for('token')
-# Sample definitions
-option :authorize_options, [:scope, :team] #slack
+7 Dynamical params ???
