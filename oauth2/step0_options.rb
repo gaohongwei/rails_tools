@@ -18,6 +18,34 @@
  "name"=>"citrix"
 }
 
+=> {
+ "setup"=>false,
+ "skip_info"=>false,
+ "client_id"=>"65159057968.65161186374",
+ "client_secret"=>"dfbbd5c6947b3cd0c2c209ca278bd885",
+ "client_options"=>{
+   "site"=>"https://slack.com", 
+   "token_url"=>"/api/oauth.access"
+  },
+ "authorize_params"=>{"state"=>"pan--e9496887ff09da1910800ca51117d647fd7edf8a70966973"},
+ "authorize_options"=>[:scope, :team],
+ "token_params"=>{},
+ "token_options"=>[],
+ "auth_token_params"=>{"mode"=>:query, "param_name"=>"token"},
+ "provider_ignores_state"=>false,
+ "name"=>"slack",
+ "scope"=>"discovery:read discovery:write"
+}
+
+    option :authorize_options, [:scope, :team]
+    option :client_options, {
+      site: 'https://slack.com',
+      token_url: '/api/oauth.access'
+    }
+    option :auth_token_params, {
+      mode: :query,
+      param_name: 'token'
+    }
 
   def options_for(option)# OAuth2
     hash = {}
