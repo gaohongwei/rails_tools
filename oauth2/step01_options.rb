@@ -91,7 +91,11 @@ options_for('authorize')
 options_for('token')
 # Sample definitions
 option :authorize_options, [:scope, :team] #slack
-
+# options_for("authorize")
+# authorize_options = [:scope, :team]
+# read elements from authorize_options
+# select the elements if options[:scope] or  options[:team]
+  
 6. Methods
     def option(name, value = nil)
       default_options[name] = value
