@@ -17,3 +17,16 @@
  "provider_ignores_state"=>false,
  "name"=>"citrix"
 }
+
+
+  def options_for(option)# OAuth2
+    hash = {}
+    options.send(:"#{option}_options").select { |key| options[key] }.each do |key|
+      hash[key.to_sym] = options[key]
+    end
+    hash
+  end
+
+#There are two calls
+options_for('authorize')
+options_for('token')
