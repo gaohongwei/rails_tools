@@ -1,6 +1,8 @@
 Source
 1.Ruby on Rails - Railscasts PRO #133 Capistrano Tasks 
   https://www.youtube.com/watch?v=UQj_01dnEiw&t=385s
+2.Ruby on Rails - Railscasts PRO #337 Capistrano Recipes (pro)
+  https://www.youtube.com/watch?v=uXla2yyzH_8&t=560s
 
 ##### 1. Add gem  #####
 Add gem
