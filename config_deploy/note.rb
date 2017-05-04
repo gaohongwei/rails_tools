@@ -14,8 +14,17 @@ create Capfile
 Capified
 
 ##### 2. update vaibales  #####
-Set variables
+domain = "mydomain"
+home = "/home/myuser"
 
+set :domain, domain
+set :home, home
+set :deploy_to, "#{home}/#{domain}"
+
+Alternatively, you can use fetch, the counterpart to set:
+set :domain, "mydomain"
+set :home, "/home/myuser"
+set :deploy_to, "#{fetch(:home)}/#{fetch(:domain)}"
 
 ##### 3. Create tasks  #####
 similar to rake task
