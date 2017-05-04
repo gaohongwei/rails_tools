@@ -1,3 +1,7 @@
+Source
+1.Ruby on Rails - Railscasts PRO #133 Capistrano Tasks 
+  https://www.youtube.com/watch?v=UQj_01dnEiw&t=385s
+
 ##### 1. Add gem  #####
 Add gem
 
