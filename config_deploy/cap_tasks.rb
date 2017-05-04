@@ -1,5 +1,6 @@
 #  cap tasks are similar to rake tasks
 #  http://railscasts.com/episodes/133-capistrano-tasks
+#  133 Capistrano Tasks
 set :application, "railscasts.com"
 role :app, application
 role :web, application
