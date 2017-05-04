@@ -1,8 +1,22 @@
 Source
+0.Railscasts Episode 133: Capistrano Tasks
+  https://www.youtube.com/watch?v=L2zoi5NgXJg
 1.Ruby on Rails - Railscasts PRO #133 Capistrano Tasks 
   https://www.youtube.com/watch?v=UQj_01dnEiw&t=385s
 2.Ruby on Rails - Railscasts PRO #337 Capistrano Recipes (pro)
   https://www.youtube.com/watch?v=uXla2yyzH_8&t=560s
+
+##### 0. Structure  #####
+Dir structure
+  myapp/release
+  myapp/current ->
+  myapp/shared ->
+
+cap staging|production deploy
+It calls the following task
+  deploy:update_code
+  deploy:sym_link
+  deploy:restart
 
 ##### 1. Add gem  #####
 Add gem
@@ -35,21 +49,6 @@ set :deploy_to, "#{fetch(:home)}/#{fetch(:domain)}"
 fetch can define a default variable
 set :deploy_to, "#{fetch(:home)}/#{fetch(:domain, 'localhost')}"
 
-##### 3. Create tasks  #####
-similar to rake task
-namespace :deploy do
-  desc 'Hello get_code'
-  task :get_code do
-    puts 'get_code'
-  end
-
-  desc 'Hello build_asset'
-  task :build_asset do
-    puts 'build_asset'
-  end
-
-  after :get_code, :build_asset
-
 
 ##### 3. Run tasks  #####
 cap -T
@@ -67,8 +66,9 @@ set :user, "deployer"
 server '127.0.0.1', :web, :app, :db, :sms, :cache, primary: true
 primary: true is used for db
 
-
 role :web, '10.10.10.10', '10.10.10.11' # if many servers
 
+handle password for remote sudo 
+    
 ##### 5. source code  #####
 lib/capistrano/recipes
