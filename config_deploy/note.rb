@@ -1,8 +1,8 @@
 Source
 0.Railscasts Episode 133: Capistrano Tasks
-  https://www.youtube.com/watch?v=L2zoi5NgXJg
-1.Ruby on Rails - Railscasts PRO #133 Capistrano Tasks 
-  https://www.youtube.com/watch?v=UQj_01dnEiw&t=385s
+  http://railscasts.com/episodes/133-capistrano-tasks?autoplay=true
+1.Railscasts PRO #133 Capistrano Tasks (revised)
+  https://www.youtube.com/watch?v=UQj_01dnEiw
 2.Ruby on Rails - Railscasts PRO #337 Capistrano Recipes (pro)
   https://www.youtube.com/watch?v=uXla2yyzH_8&t=560s
 
