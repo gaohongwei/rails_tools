@@ -69,5 +69,9 @@ server '127.0.0.1', :web, :app, :db, :sms, :cache, primary: true
 primary: true is used for db
 
 role :web, '10.10.10.10', '10.10.10.11' # if many servers
+  
+set :deploy_via, :remote_cache #
+set :use_sudo, false # nor use sudo for local
+  
 ##### 6. source code  #####
 lib/capistrano/recipes
