@@ -61,6 +61,7 @@ run "#{sudo} cp ~/hello /hello"
 
 # Enable sudo password work remotely
 default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
 ##### 6. Define required variable  #####
 # server, user, role
 set :user, "deployer" # login user
