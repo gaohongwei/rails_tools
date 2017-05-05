@@ -34,3 +34,8 @@ namespace :deploy do
 end
 
 after 'deploy:update_code', 'deploy:symlink_shared'
+# run, run command in remote system
+# system, run command in local system
+
+# cap deploy:assets
+# Have to run this manualy
