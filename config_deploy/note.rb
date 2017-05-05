@@ -19,12 +19,10 @@ It calls the following task
   deploy:restart
 
 ##### 1. Add gem  #####
-Add gem
-
-##### 2. Create files  #####
-#capify
+##### 2. Create files/directory  #####
+#capify (old)
 #cap install
-SJCMACN2FBG8WN:zz kwei$ cap install
+$ cap install
 mkdir -p config/deploy
 create config/deploy.rb
 create config/deploy/staging.rb
@@ -48,19 +46,21 @@ set :deploy_to, "#{fetch(:home)}/#{fetch(:domain)}"
 
 fetch can define a default variable
 set :deploy_to, "#{fetch(:home)}/#{fetch(:domain, 'localhost')}"
-
 ##### 3. Run tasks  #####
 cap -T
 cap dev deploy:get_code
-config/deploy/dev.rb must be defined
+config/deploy/dev.rb must be defined for above command to run
 
 ##### 4. Run command locally/remotely  #####
-run a command, 
-run, run command in remote system
+run, run command in each system (including remote system)
 system, run command in local system
 run "ls"
+
+run a command as root
 run "#{sudo} cp ~/hello /hello"
 
+# Enable sudo password work remotely
+default_run_options[:pty] = true
 ##### 6. Define required variable  #####
 # server, user, role
 set :user, "deployer" # login user
@@ -68,8 +68,5 @@ server '127.0.0.1', :web, :app, :db, :sms, :cache, primary: true
 primary: true is used for db
 
 role :web, '10.10.10.10', '10.10.10.11' # if many servers
-
-handle password for remote sudo 
-    
 ##### 6. source code  #####
 lib/capistrano/recipes
