@@ -1,17 +1,3 @@
-# Set user and email for single  project
-git init
-git config user.name "Gaohong Wei"
-git config user.name
-git config user.email "gaohongwei@gmail.com"
-git config user.email
-
-# Set user and email globally
-git init
-git config --global user.name "Gaohong Wei"
-git config --global user.name
-git config --global user.email "gaohongwei@gmail.com"
-git config --global user.email
-
 
 ssh-keygen -t rsa
 ssh-copy-id remote_host
