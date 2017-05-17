@@ -1,2 +1,3 @@
 
 ApplicationController.helpers.method_name
+PagesController.helpers.page_name
