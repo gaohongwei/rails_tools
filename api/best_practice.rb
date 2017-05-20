@@ -43,9 +43,6 @@ We are using the url for the API versioning starting with the letter „v“
 It is hard to work with an API that ignores error handling. Pure returning of a HTTP 500 with a stacktrace is not very helpful.
 Use HTTP status codes
 
-The HTTP standard provides over 70 status codes to describe the return values. 
-We don’t need them all, but  there should be used at least a mount of 10.
-
 Use error payloads
 All exceptions should be mapped in an error payload. Here is an example how a JSON payload should look like.
  
