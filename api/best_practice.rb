@@ -1,6 +1,7 @@
 These are 10 best practices to design a clean RESTful API:
 https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/
 
+Use Restful Name and action
 1. GET method and query parameters should not alter the state
 Use PUT, POST and DELETE methods  instead of the GET method to alter the state.
 Do not use GET for state changes:
@@ -53,3 +54,8 @@ Some proxies support only POST and GET methods. To support a RESTful API with th
 Use the custom HTTP Header X-HTTP-Method-Override to overrider the POST Method.
 
 
+Always use ssl connection
+Authentication
+With ssl, access token can be used for authentication
+
+Cache
