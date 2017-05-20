@@ -1,6 +1,7 @@
-
 HTTP status codes
-
+The HTTP standard provides over 70 status codes to describe the return values. 
+We don’t need them all, but  there should be used at least a mount of 10.
+  
 200 – OK – Eyerything is working
 
 200 OK - Response to a successful GET, PUT, PATCH or DELETE. 
