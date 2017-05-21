@@ -1,3 +1,8 @@
+rails new abc
+cd abc
+rails g model book name:string author:string
+rake  db:migrate
+
 # config/routes.rb
 Rails.application.routes.draw do
   root 'books#index'
