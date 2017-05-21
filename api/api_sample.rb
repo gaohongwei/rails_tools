@@ -1,5 +1,6 @@
 rails new abc
 cd abc
+rails g scafflod book name:string author:string
 rails g model book name:string author:string
 rake  db:migrate
 
