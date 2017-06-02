@@ -1,6 +1,6 @@
 exception_notification
 https://github.com/smartinez87/exception_notification
-
+My Sample:
   ExceptionNotifier.notify_exception(Exception.new,
     :data => {:message => "This is raised by Kevin Wei"})  
     
