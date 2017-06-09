@@ -51,3 +51,12 @@ $ git remote set-url origin git@github.com:gaohongwei/abc.git
 $ git remote -v
 origin  git@github.com:gaohongwei/abc.git (fetch)
 origin  git@github.com:gaohongwei/abc.git (push)
+
+######## Use 2nd account ########
+ssh -T git@github.com
+eval "$(ssh-agent -s)"
+ssh-add -K ~/.ssh/gwei_rsa
+ssh -T git@github.com
+ssh-add -l
+git config user.name gwei
+git config user.email gaohongwei@gmail.com
